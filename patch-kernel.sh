@@ -28,7 +28,7 @@ if ! grep -q "^deb-src" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
     exit 1
 fi
 
-if [[ $MORE > 1 ]]; then
+if [[ $MORE -gt 1 ]]; then
     echo " - Warning: You set \$MORE to $MORE, which is greater than 1, and this is unsafe. I recommend you to set it to 0 or 1." 1>&2
 fi
 
@@ -189,7 +189,7 @@ fi
 
 if [[ -e "/boot/kernel8.img" ]]; then
     kn=8
-else if [[ -e "/boot/kernel7.img" ]]; then
+elif [[ -e "/boot/kernel7.img" ]]; then
     kn=7
 fi
 
