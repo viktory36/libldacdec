@@ -5,13 +5,13 @@ INSTALL=0
 RUN_MENUCONFIG=0
 WORKDIR="$HOME/bt-kernel-patch"
 
-if [[ "$@" == *"--install"* ]]; then
-    INSTALL=1
-fi
-
-if [[ "$@" == *"--configure"* ]]; then
-    RUN_MENUCONFIG=1
-fi
+for arg in "$@"; do
+    if [[ "$arg" == "--install" ]]; then
+        INSTALL=1
+    elif [[ "$arg" == "--configure"* ]]; then
+        RUN_MENUCONFIG=1
+    fi
+done
 
 defconfig=""
 generic_defconfig=0
